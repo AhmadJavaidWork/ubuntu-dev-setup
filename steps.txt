@@ -1,5 +1,7 @@
-1. chmod +x setup.sh
-2. Run ./setup.sh
+1. Copy this folder to Documents
+2. Open fodler ubuntu-setup
+3. chmod +x setup.sh
+4. Run ./setup.sh
 
 CREATE USER rv WITH PASSWORD 'asd';
 ALTER USER rv WITH SUPERUSER;

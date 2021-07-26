@@ -12,13 +12,14 @@ sudo apt install -y python3-pip
 sudo apt install -y build-essential libssl-dev libffi-dev python3-dev
 
 # Install Chrome
+cd
 cd Downloads
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 cd
 
 # Install packages
-sudo apt install -y software-properties-common apt-transport-https git
+sudo apt install -y software-properties-common apt-transport-https git curl
 
 # Install packages github-cli
 curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
@@ -47,12 +48,9 @@ sudo snap install postbird
 sudo snap install starship
 
 # Add starship to .bashrc to load starship
-echo "eval "$(starship init bash)"" >> .bashrc
+sudo echo 'eval "$(starship init bash)"' >> .bashrc
 
 # Dracula Gnome-terminal setup
-google-chrome https://draculatheme.com/gnome-terminal
-google-chrome https://draculatheme.com/gedit
-google-chrome https://draculatheme.com/gtk
 sudo apt install -y dconf-cli
 cd Downloads
 git clone https://github.com/dracula/gnome-terminal
@@ -71,7 +69,7 @@ sudo mv dracula.xml $HOME/.local/share/gedit/styles/
 cd
 cd Downloads
 wget https://github.com/dracula/gtk/archive/master.zip
-unzip file.zip -d master
+unzip master.zip -d master
 sudo mv ./master/gtk-master /usr/share/themes/
 gsettings set org.gnome.desktop.interface gtk-theme "Dracula"
 gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
@@ -80,13 +78,14 @@ gsettings set org.gnome.desktop.wm.preferences theme "Dracula"
 cd
 cd Downloads
 wget https://github.com/dracula/gtk/files/5214870/Dracula.zip
-unzip file.zip -d Dracula
-sudo mv ./Dracula /usr/share/icons/
+unzip Dracula.zip -d Dracula
+sudo mv ./Dracula/Dracula /usr/share/icons/
 gsettings set org.gnome.desktop.interface icon-theme "Dracula"
 
 
 # Install gnome-tweaks
 cd
+cd Documents/ubuntu-setup
 sudo apt -y install gnome-tweaks
 gsettings set org.gnome.desktop.background picture-uri file://$PWD/ubuntu-1.png
 
@@ -95,10 +94,10 @@ python3 ./shortcuts.py 'VS Code' 'code' '<Super><Shift>V'
 python3 ./shortcuts.py 'Open gedit' 'gedit' '<Super><Shift>G'
 python3 ./shortcuts.py 'Shutdown' 'poweroff' '<Super><Shift><Control>S'
 python3 ./shortcuts.py 'Reboot' 'reboot' '<Super><Shift><Control>R'
-python3 ./shortcuts.py 'Chrome' 'google-chrome' '<Super>R'
+python3 ./shortcuts.py 'Chrome' 'google-chrome' '<Super>B'
 python3 ./shortcuts.py 'File Manager' 'nautilis' '<Super>F'
-python3 ./shortcuts.py 'Terminal' 'gnome-terminal' '<Super><Shift>T'
-python3 ./shortcuts.py 'Tilix' 'tilix' '<Super>T'
+python3 ./shortcuts.py 'Terminal' 'gnome-terminal' '<Super><Return>'
+python3 ./shortcuts.py 'Tilix' 'tilix' '<Shift><Super><Return>'
 
 
 # Uninstall libreoffice
